@@ -1,0 +1,36 @@
+# Config
+env/
+!env/.keep
+
+# Python
+builds/
+cache/
+*.py[cod]
+
+# Environment
+.venv/
+venv/
+
+# Cache
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+# IDE
+.idea/*
+.vscode/*
+
+# Data
+mongo/
+pgdata/
+data/
+
+# Log & profiling data
+logs/
+*.log
+*.dat
+*.dcm
+*.jpeg
+*.jpg
+*.png
+*.gif
