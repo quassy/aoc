@@ -9,9 +9,9 @@ class BaseDay:
     def __init__(self, file: PathLike) -> None:
         path = Path(file).parent.resolve()
         with open(os.path.join(path, "test_input.txt")) as f:
-            self.test_input = self.transform_input(f.readlines())
+            self.test_input = self.transform_input(f.read().splitlines())
         with open(os.path.join(path, "input.txt")) as f:
-            self.input = self.transform_input(f.readlines())
+            self.input = self.transform_input(f.read().splitlines())
 
     def transform_input(self, input_list: List[str]) -> list:
         return input_list
