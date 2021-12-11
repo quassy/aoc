@@ -14,10 +14,11 @@ class Day extends BaseDay {
 
     public function part1(array $l): int {
         $count = 0;
+        $break = count($l)-1;
         foreach ($l as $key => $value) {
-            if ($key == count($l)-1)
+            if ($key == $break)
                 break;
-            if ($l[$key] < $l[$key+1])
+            if ($value < $l[$key+1])
                 $count++;
         }
         return $count;
@@ -25,10 +26,11 @@ class Day extends BaseDay {
 
     public function part2(array $l, ?int $window = 3): int {
         $count = 0;
+        $break = count($l)-$window;
         foreach ($l as $key => $value) {
-            if ($key == count($l)-$window)
+            if ($key == $break)
                 break;
-            if (array_sum(array_slice($l, $key, $window)) < array_sum(array_slice($l, $key+1, $window)))
+            if ($value < $l[$key+$window])
                 $count++;
         }
         return $count;
