@@ -14,12 +14,11 @@ class Day(BaseDay):
 
     @staticmethod
     def part1(l: input_type) -> int:
-        return sum(1 for k, v in enumerate(l[:-1]) if l[k] < l[k + 1])
+        return sum(1 for k, v in enumerate(l[:-1]) if v < l[k + 1])
 
     @staticmethod
     def part2(l: input_type, window: int = 3) -> int:
-        l = [sum(l[i : i + window]) for i, v in enumerate(l[: -window + 1])] if window > 1 else l
-        return sum(1 for k, v in enumerate(l[:-1]) if l[k] < l[k + 1])
+        return sum(1 for k, v in enumerate(l[:-window]) if v < l[k + window])
 
 
 if __name__ == "__main__":
