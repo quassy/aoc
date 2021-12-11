@@ -4,8 +4,12 @@ from os import PathLike
 from pathlib import Path
 from typing import List, Optional
 
+from src.time import time_func
+
 
 class BaseDay:
+    repeat_count = 1000
+
     def __init__(self, file: PathLike) -> None:
         path = Path(file).parent.resolve()
         with open(os.path.join(path, "test_input.txt")) as f:
@@ -39,6 +43,14 @@ class BaseDay:
         print(self.part2(self.input))
         if main_output:
             assert self.part2(self.input) == main_output
+
+    @time_func(repeat_count)
+    def time_part1(self) -> None:
+        self.part1(self.input)
+
+    @time_func(repeat_count)
+    def time_part2(self) -> None:
+        self.part2(self.input)
 
     def part1(self, input_list: list) -> int:
         pass

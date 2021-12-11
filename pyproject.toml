@@ -12,7 +12,7 @@ target_version = ["py39"]
 
 [tool.flake8]
 max-line-length = 100
-extend-ignore = "E203, B001, W503, ANN002, ANN003, ANN101, ANN102, D100, D101, R504,  S101, D107"
+extend-ignore = "E203, B001, W503, ANN002, ANN003, ANN101, ANN102, D100, D101, R504,  S101, D107, D102, E741"
 per-file-ignores = "tests/test_*:D, ANN2, */__init__.py:D104"
 exclude = ".git, __pycache__, .mypy_cache, .pytest_cache, .venv, .cache"
 docstring-convention = "google"

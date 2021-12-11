@@ -79,5 +79,8 @@ if __name__ == "__main__":
         day.main_part1(3895776)
         day.test_part2(230)
         day.main_part2(7928162)
+
+        day.time_part1()
+        day.time_part2()
     except KeyboardInterrupt:
         print("Interrupted by user.")
