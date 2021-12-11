@@ -78,6 +78,6 @@ if __name__ == "__main__":
         day.test_part1(198)
         day.main_part1(3895776)
         day.test_part2(230)
-        day.main_part2()
+        day.main_part2(7928162)
     except KeyboardInterrupt:
         print("Interrupted by user.")

@@ -1,7 +1,6 @@
 name: pre-commit
 
 on:
-  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
@@ -11,13 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/cache@v2
-      with:
-        path: |
-          ~/.cache/pip
-          ~/.cache/pre-commit
-        key: ${{ runner.os }}-pre-commit-${{ hashFiles('**/.pre-commit-config.yaml') }}
     - uses: actions/setup-python@v2
     - run: export MYPYPATH=`pwd`:$MYPYPATH
     - run: pip install poetry
-    - uses: pre-commit/action@v2.0.0
+    - uses: pre-commit/action@v2.0.3
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - run: pip install -r requirements.txt
+    - run: python3 -m doctest -v **/*.py
+    - run: python3 -m unittest -v

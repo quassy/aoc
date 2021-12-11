@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/sirosen/check-jsonschema
-  rev: 0.7.1
+  rev: 0.8.2
   hooks:
   - id: check-github-actions
   - id: check-github-workflows
@@ -47,7 +47,7 @@ repos:
   hooks:
   - id: isort
 - repo: https://github.com/ambv/black
-  rev: 21.11b1
+  rev: 21.12b0
   hooks:
   - id: black
     args: [--fast]
