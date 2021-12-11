@@ -30,11 +30,13 @@ class Day(BaseDay):
 
         return draws, boards
 
-    def part1(self, l: input_type) -> int:
+    @staticmethod
+    def part1(l: input_type) -> int:
         draws, boards = l
         return 0
 
-    def part2(self, l: input_type) -> int:
+    @staticmethod
+    def part2(l: input_type) -> int:
         draws, boards = l
         return 0
 

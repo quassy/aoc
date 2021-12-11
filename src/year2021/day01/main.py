@@ -12,10 +12,12 @@ class Day(BaseDay):
     def transform_input(self, input_list: List[str]) -> input_type:
         return [int(d) for d in input_list]
 
-    def part1(self, l: input_type) -> int:
+    @staticmethod
+    def part1(l: input_type) -> int:
         return sum(1 for k, v in enumerate(l[:-1]) if l[k] < l[k + 1])
 
-    def part2(self, l: input_type, window: int = 3) -> int:
+    @staticmethod
+    def part2(l: input_type, window: int = 3) -> int:
         l = [sum(l[i : i + window]) for i, v in enumerate(l[: -window + 1])] if window > 1 else l
         return sum(1 for k, v in enumerate(l[:-1]) if l[k] < l[k + 1])
 

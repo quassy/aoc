@@ -52,8 +52,10 @@ class BaseDay:
     def time_part2(self) -> None:
         self.part2(self.input)
 
-    def part1(self, input_list: list) -> int:
+    @staticmethod
+    def part1(input_list: list) -> int:
         pass
 
-    def part2(self, input_list: list) -> int:
+    @staticmethod
+    def part2(input_list: list) -> int:
         pass

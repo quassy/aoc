@@ -12,12 +12,14 @@ class Day(BaseDay):
     def transform_input(self, input_list: List[str]) -> input_type:
         return [(d.split()[0], int(d.split()[1])) for d in input_list]
 
-    def part1(self, l: input_type) -> int:
+    @staticmethod
+    def part1(l: input_type) -> int:
         horizontal = sum(f[1] for f in l if f[0] == "forward")
         vertical = sum(f[1] for f in l if f[0] == "down") - sum(f[1] for f in l if f[0] == "up")
         return horizontal * vertical
 
-    def part2(self, l: input_type) -> int:
+    @staticmethod
+    def part2(l: input_type) -> int:
         aim = 0
         horizontal = 0
         vertical = 0

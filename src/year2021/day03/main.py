@@ -14,7 +14,8 @@ class Day(BaseDay):
     def transform_input(self, input_list: List[str]) -> input_type:
         return np.array([list(b) for b in input_list], dtype="int")
 
-    def part1(self, l: input_type) -> int:
+    @staticmethod
+    def part1(l: input_type) -> int:
         sums = l.sum(axis=0)
         gamma = ""
         for s in sums:
@@ -26,7 +27,8 @@ class Day(BaseDay):
         epsilon = 2 ** l.shape[1] - 1 - gamma
         return gamma * epsilon
 
-    def part2(self, l: input_type) -> int:
+    @staticmethod
+    def part2(l: input_type) -> int:
         for col in range(l.shape[1] - 1, 0 - 1, -1):
             l = l[l[:, col].argsort(kind="mergesort")]
 
