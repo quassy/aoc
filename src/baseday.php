@@ -1,5 +1,7 @@
 <?php
 
+require_once("./src/time.php");
+
 class BaseDay {
     protected int $repeat_count = 1000;
 
@@ -40,14 +42,16 @@ class BaseDay {
             assert($this->part2($this->input) == $main_output);
     }
 
-    # @time_func(repeat_count)
     public function time_part1(): void {
-        $this->part1($this->input);
+        foreach (time_loop(1000) as $_) {
+            $this->part1($this->input);
+        }
     }
 
-    # @time_func(repeat_count)
     public function time_part2(): void {
-        $this->part2($this->input);
+        foreach (time_loop(1000) as $_) {
+            $this->part2($this->input);
+        }
     }
 
     public function part1(array $input_list): int {
