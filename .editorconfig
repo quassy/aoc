@@ -7,7 +7,7 @@ charset = utf-8
 indent_style = space
 trim_trailing_whitespace = true
 
-[*.py]
+[*.{php,py}]
 indent_size = 4
 
 [*.{js,yml,yaml}]
