@@ -16,11 +16,8 @@ class Day(BaseDay):
         return sum(1 for k, v in enumerate(l[:-1]) if l[k] < l[k + 1])
 
     def part2(self, l: input_type, window: int = 3) -> int:
-        return sum(
-            1
-            for k, v in enumerate(l[:-window])
-            if sum(l[k : k + window]) < sum(l[k + 1 : k + 1 + window])
-        )
+        l = [sum(l[i : i + window]) for i, v in enumerate(l[: -window + 1])] if window > 1 else l
+        return sum(1 for k, v in enumerate(l[:-1]) if l[k] < l[k + 1])
 
 
 if __name__ == "__main__":
