@@ -7,8 +7,11 @@ from pathlib import Path
 
 def get_input(year: int, day: int) -> str:
     """Request input from aoc website."""
-    with open("env/session.txt") as f:
-        contents = f.read()
+    try:
+        with open("env/session.txt") as f:
+            contents = f.read()
+    except:
+        print("Expected session.txt file in env with content session=c0ffee...")
 
     url = f"https://adventofcode.com/{year}/day/{day}/input"
     req = urllib.request.Request(url, headers={"Cookie": contents.strip()})
