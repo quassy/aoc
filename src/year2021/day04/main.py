@@ -1,3 +1,4 @@
+from copy import deepcopy
 from typing import List, Tuple
 
 import numpy as np
@@ -32,22 +33,40 @@ class Day(BaseDay):
 
     @staticmethod
     def part1(l: input_type) -> int:
-        draws, boards = l
-        return 0
+        draws, boards = deepcopy(l)
+        for draw in draws:
+            for i, _ in enumerate(boards):
+                boards[i] = np.where(boards[i] == draw, -1, boards[i])
+                if -5 in np.sum(boards[i], axis=0) or -5 in np.sum(boards[i], axis=1):
+                    boards[i] = np.where(boards[i] == -1, 0, boards[i])
+                    return int(np.sum(boards[i]) * draw)
+        else:
+            raise Exception("No winner?")
+
 
     @staticmethod
     def part2(l: input_type) -> int:
-        draws, boards = l
-        return 0
+        draws, boards = deepcopy(l)
+        for draw in draws:
+            for i, _ in enumerate(boards):
+                boards[i] = np.where(boards[i] == draw, -1, boards[i])
+                if -5 in np.sum(boards[i], axis=0) or -5 in np.sum(boards[i], axis=1):
+                    boards[i] = np.where(boards[i] == -1, 0, boards[i])
+                    winner = int(np.sum(boards[i]) * draw)
+                    if winner == 1272:
+                        print(i)
+                        print(draw)
+                    del boards[i]
+        return winner
 
 
 if __name__ == "__main__":
     try:
         day = Day()
         day.test_part1(4512)
-        day.main_part1()
-        # day.test_part2()
-        # day.main_part2()
+        day.main_part1(58838)
+        day.test_part2(1924)
+        day.main_part2()
 
         day.time_part1()
         # day.time_part2()

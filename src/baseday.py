@@ -12,6 +12,10 @@ class BaseDay:
 
     def __init__(self, file: PathLike) -> None:
         path = Path(file).parent.resolve()
+
+        self.test_input = (path / "test_input.txt").read_text()
+        self.input = (path / "input.txt").read_text()
+
         with open(os.path.join(path, "test_input.txt")) as f:
             self.test_input = self.transform_input(f.read().splitlines())
         with open(os.path.join(path, "input.txt")) as f:
