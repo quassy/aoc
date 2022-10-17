@@ -31,7 +31,7 @@ def main() -> None:
         print(f"Advent of {year}: Day {day:>2d}")
 
         path = Path(f"src/year{year}/day{day:02d}")
-        if path.exists():
+        if (path / "input.txt").exists():
             continue
 
         path.mkdir(parents=True, exist_ok=True)
