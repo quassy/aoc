@@ -53,6 +53,6 @@ license = "Copyright 2021 quassy"
 [tool.poetry.dependencies]
 python = "~3.9"
 numpy = "~1.23"
-numba = "^0.56.3"
+numba = "^0.56.4"
 
 [tool.poetry.dev-dependencies]
